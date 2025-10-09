@@ -1,0 +1,54 @@
+:root {
+    --primary-color: #830051; 
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 60px; 
+    margin: 0; }
+
+.navbar {
+    height: 60px; 
+}
+
+.hero-section {
+    padding-top: 0;
+    margin-top: -1px; 
+}
+
+.hero-bg-element {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1; /* Fons darrere del contingut  */
+}
+
+.hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--primary-color), 10%);
+    border-color: darken(var(--primary-color), 10%);
+}
+
+.theme-toggle {
+    border-radius: 20px;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Ajuste para eliminar espacio adicional */
+.hero-content, .hero-section .container {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
