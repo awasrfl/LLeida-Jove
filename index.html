@@ -1,266 +1,103 @@
 <!DOCTYPE html>
 <html lang="ca"> 
-<head> <!-- Conté metadades i enllaços a recursos externs. -->
-    <meta charset="UTF-8"> 
+<head> <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>LleidaJove - Esdeveniments Culturals per a Estudiants</title> <!-- Títol de la pàgina -->
-   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">  CSS de Bootstrap -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"> <!-- Google Fonts per a tipografies. -->
-    <link rel="stylesheet" href="./Bootstrap/stylesdiccionari.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Enllaç al CSS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> <!-- GSAP per animacions -->
-</head>
+    <title>LleidaJove - Esdeveniments Culturals per a Estudiants</title> <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"> <link rel="stylesheet" href="./Bootstrap/stylesdiccionari.css">
+    <link rel="stylesheet" href="styles.css"> <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> </head>
 <body> 
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar"> <!-- Barra de navegació amb fons fosc -->
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#" aria-label="Lleida Jove - Inici">
-                <span style="color: var(--primary-color);">Lleida</span> <span class="text-white">Jove</span>
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegació">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary fw-bold" href="#">Lleida<span>Jove</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link text-white hover-effect" href="#events">Esdeveniments</a>
+                        <a class="nav-link hover-effect" href="#">Activitats</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white hover-effect" href="#calendar">Calendari</a>
+                        <a class="nav-link hover-effect" href="#">Informació</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white hover-effect" href="#about">Sobre Nosaltres</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-light btn-auth hover-effect" data-bs-toggle="modal" data-bs-target="#authModal" aria-label="Iniciar Sessió o Registrar-se">Iniciar Sessió / Registrar-se</button>
+                    <li class="nav-item me-2">
+                        <button class="btn btn-outline-primary btn-auth hover-effect">Iniciar Sessió</button>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <!-- Modal per Iniciar Sessió / Registrar-se -->
-    <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="authModalLabel">Iniciar Sessió o Registrar-se</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tancar"></button>
-                </div>
-                <div class="modal-body">
-                    <ul class="nav nav-tabs" id="authTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Iniciar Sessió</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab" aria-controls="register" aria-selected="false">Registrar-se</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="authTabContent">
-                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-                            <form class="mt-3">
-                                <div class="mb-3">
-                                    <label for="loginEmail" class="form-label">Correu Electrònic</label>
-                                    <input type="email" class="form-control" id="loginEmail" placeholder="exemple@udl.cat">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="loginPassword" class="form-label">Contrasenya</label>
-                                    <input type="password" class="form-control" id="loginPassword">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Iniciar Sessió</button>
-                            </form>
-                        </div>
-                        <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                            <form class="mt-3">
-                                <div class="mb-3">
-                                    <label for="registerName" class="form-label">Nom</label>
-                                    <input type="text" class="form-control" id="registerName">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="registerEmail" class="form-label">Correu Electrònic</label>
-                                    <input type="email" class="form-control" id="registerEmail" placeholder="exemple@udl.cat">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="registerPassword" class="form-label">Contrasenya</label>
-                                    <input type="password" class="form-control" id="registerPassword">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Registrar-se</button>
-                            </form>
-                        </div>
-                    </div>
+    <section class="hero-section text-center position-relative">
+        <div class="hero-background-overlay"></div>
+        <div class="container position-relative" style="z-index: 10;">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="hero-title display-4 mb-4">Descobreix la Vida Cultural i Jove de Lleida</h1>
+                    <p class="lead text-secondary mb-5">
+                        La teva guia per als millors esdeveniments, tallers i activitats per a estudiants universitaris i joves a la ciutat.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-lg shadow-sm">Explora Esdeveniments</a> 
+                    <a href="#" class="btn btn-outline-secondary btn-lg ms-3">Contacte</a>
                 </div>
             </div>
         </div>
-    </div>
-
-    <section class="hero-section position-relative overflow-hidden"> <!-- Secció hero amb fons creatiu -->
-        <div class="hero-bg"></div> <!-- Fons amb imatge -->
-        <div class="hero-bg-element" id="circle1" style="width: 300px; height: 300px; top: -150px; right: -50px; background-color: rgba(255, 255, 255, 0.1);"></div> <!-- Cercle decoratiu 1. -->
-        <div class="hero-bg-element" id="circle2" style="width: 200px; height: 200px; bottom: -100px; left: 10%; background-color: rgba(0, 123, 255, 0.2);"></div> <!-- Cercle decoratiu 2. -->
-        <div class="hero-bg-element" id="circle3" style="width: 150px; height: 150px; top: 50%; right: 20%; background-color: rgba(255, 215, 0, 0.2);"></div> <!-- Cercle decoratiu 3. -->
-        <div class="container"> 
-            <div class="row align-items-center min-vh-75"> <!-- Fila amb alineació vertical i alçada mínima. -->
-                <div class="col-lg-6 hero-content"> <!-- Columna de text. -->
-                    <h1 class="hero-title mb-4">Descobreix la cultura a Lleida i la UdL</h1> <!-- Títol principal. -->
-                    <p class="lead mb-4">Troba i reserva la teva entrada per als millors esdeveniments culturals de la ciutat i la universitat. Teatre, música, exposicions i molt més.</p> <!-- Descripció. -->
-                    <a href="#events" class="btn btn-lg btn-primary">Explora Esdeveniments</a> <!-- Botó de crida a l'acció. -->
-                </div>
-                <div class="col-lg-6 text-center"> <!-- Columna d'esdeveniment destacat. -->
-                    <div class="bg-white rounded-3 p-4 shadow-lg event-highlight" style="transform: rotate(3deg);"> <!-- Caixa amb ombra i rotació. -->
-                        <h3 class="mb-3" style="color: var(--primary-color);">Pròxim Esdeveniment</h3> <!-- Subtítol. -->
-                        <h4 class="mb-2">Festival de Jazz UdL</h4> <!-- Títol de l'esdeveniment. -->
-                        <p class="mb-3">25 d'Octubre · 20:00h</p> <!-- Detalls. -->
-                        <span class="badge bg-warning text-dark mb-3">Música</span> <!-- Etiqueta de categoria. -->
-                        <div class="d-grid"> <!-- Grid per a botó. -->
-                            <a href="#" class="btn btn-primary">Reserva Ara</a> <!-- Botó de reserva -->
-                        </div>
-                    </div>
-                </div> 
-            </div>
-        </div>
+        <div id="circle1" class="hero-bg-element bg-warning" style="width: 100px; height: 100px; top: 10%; left: 5%;"></div>
+        <div id="circle2" class="hero-bg-element bg-primary opacity-50" style="width: 150px; height: 150px; bottom: 15%; right: 10%;"></div>
+        <div id="circle3" class="hero-bg-element bg-secondary" style="width: 50px; height: 50px; top: 25%; right: 5%;"></div>
     </section>
-
-    <section class="py-5 bg-light"> <!-- Secció de filtres amb fons clar -->
-        <div class="container">
-            <div class="row mb-4"> <!-- Fila amb marge inferior. -->
-                <div class="col-12"> <!-- Columna completa -->
-                    <h2 class="text-center mb-4">Filtra per categoria</h2> <!-- Títol centrat -->
-                    <div class="d-flex flex-wrap justify-content-center gap-2"> <!-- Contenidor flexible per a filtres -->
-                        <button class="btn btn-outline-primary filter-btn active" data-filter="all">Tots</button> 
-                        <button class="btn btn-outline-primary filter-btn" data-filter="music">Música</button> 
-                        <button class="btn btn-outline-primary filter-btn" data-filter="theatre">Teatre</button> 
-                        <button class="btn btn-outline-primary filter-btn" data-filter="art">Arts Visuals</button> 
-                        <button class="btn btn-outline-primary filter-btn" data-filter="cinema">Cinema</button> 
-                        <button class="btn btn-outline-primary filter-btn" data-filter="literature">Literatura</button> 
+    <section class="container py-5">
+        <h2 class="text-center text-primary mb-5 fw-bold">Esdeveniments Destacats</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card event-highlight shadow-sm border-0 h-100">
+                    <img src="https://picsum.photos/400/300?random=1" class="card-img-top" alt="Imatge d'un concert">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Festival de Música Jove</h5>
+                        <p class="card-text text-muted">Concerts en directe i DJ sets amb artistes locals.</p>
+                        <span class="badge bg-warning text-dark mb-2">Música</span> <p class="fw-bold mt-2">Data: 25 d'Octubre</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card event-highlight shadow-sm border-0 h-100">
+                    <img src="https://picsum.photos/400/300?random=2" class="card-img-top" alt="Imatge d'una exposició">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Exposició d'Art Urbà</h5>
+                        <p class="card-text text-muted">Descobreix el talent emergent de l'Street Art.</p>
+                        <span class="badge bg-primary mb-2">Art</span> <p class="fw-bold mt-2">Data: 10 de Novembre</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card event-highlight shadow-sm border-0 h-100">
+                    <img src="https://picsum.photos/400/300?random=3" class="card-img-top" alt="Imatge d'un taller">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Taller de Fotografia Digital</h5>
+                        <p class="card-text text-muted">Aprèn tècniques avançades amb professionals.</p>
+                        <span class="badge bg-success mb-2">Formació</span>
+                        <p class="fw-bold mt-2">Data: 15 de Desembre</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="events" class="py-5"> <!-- Secció d'esdeveniments -->
-        <div class="container"> 
-            <h2 class="text-center mb-5">Pròxims Esdeveniments</h2> <!-- Títol centrat -->
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="eventsContainer"> <!-- Grid d'esdeveniments adaptable -->
+        <div class="text-center mt-5">
+            <a href="#" class="btn btn-outline-primary btn-lg">Veure tots els esdeveniments</a>
+        </div>
         
-            </div>
-        </div>
-    </section>
-
-    <section id="calendar" class="py-5 bg-light"> <!-- Secció de calendari amb fons clar -->
-        <div class="container"> 
-            <h2 class="text-center mb-5">Calendari d'Esdeveniments</h2> <!-- Títol centrat -->
-            <div class="row justify-content-center"> <!-- Fila centrada -->
-                <div class="col-lg-10"> <!-- Columna ajustada per a calendari -->
-                    <div id="calendarContainer" class="bg-white rounded-3 shadow-sm p-4"> <!-- Contenidor del calendari -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-5"> <!-- Secció sobre nosaltres -->
-        <div class="container"> 
-            <div class="row align-items-center"> <!-- Fila amb alineació vertical -->
-                <div class="col-lg-6 mb-4 mb-lg-0"> <!-- Columna de text -->
-                    <h2 class="mb-4">Sobre Lleida UdL</h2> <!-- Títol actualitzat -->
-                    <p class="mb-4">Som una plataforma creada per i per als estudiants de la Universitat de Lleida, amb l'objectiu de facilitar l'accés a la riquesa cultural de la ciutat i de la pròpia universitat.</p> 
-                    <p class="mb-4">Creiem que la cultura és una part fonamental de la formació integral dels estudiants, i per això treballem per connectar-vos amb els millors esdeveniments culturals de Lleida.</p> 
-                    <div class="d-flex gap-3"> <!-- Contenidor d'estadístiques -->
-                        <div class="text-center"> <!-- Estadística 1 -->
-                            <h3 class="text-primary">150+</h3>
-                            <p>Esdeveniments anuals</p>
-                        </div>
-                        <div class="text-center"> <!-- Estadística 2 -->
-                            <h3 class="text-primary">5.000+</h3>
-                            <p>Estudiants participants</p>
-                        </div>
-                        <div class="text-center"> <!-- Estadística 3 -->
-                            <h3 class="text-primary">30+</h3>
-                            <p>Col·laboradors</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6"> <!-- Columna de contacte -->
-                    <div class="position-relative"> 
-                        <div class="rounded-3 p-4 text-white" style="background-color: #830051;"> 
-                            <h3 class="mb-3">Vols organitzar un esdeveniment?</h3> <!-- Subtítol -->
-                            <p class="mb-4">Si ets estudiant o representes una entitat i vols promocionar el teu esdeveniment cultural a través de la nostra plataforma, contacta'ns.</p> 
-                            <a href="#" class="btn btn-warning">Contacta'ns</a> <!-- Botó de contacte -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="signup" class="py-5 bg-light"> <!-- Nova secció per al formulari d'inscripció -->
+        </section>
+    <footer class="footer mt-5 py-4">
         <div class="container">
-            <h2 class="text-center mb-5">Inscriu-te a un Esdeveniment</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nom</label>
-                            <input type="text" class="form-control" id="name" placeholder="El teu nom">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Correu Electrònic</label>
-                            <input type="email" class="form-control" id="email" placeholder="exemple@udl.cat">
-                        </div>
-                        <div class="mb-3">
-                            <label for="event" class="form-label">Esdeveniment</label>
-                            <select class="form-select" id="event">
-                                <option selected>Selecciona un esdeveniment</option>
-                                <option value="1">Festival de Jazz UdL</option>
-                                <option value="2">Exposició d'Art Modern</option>
-                                <option value="3">Teatre Universitari</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Missatge (opcional)</label>
-                            <textarea class="form-control" id="message" rows="3"></textarea>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Inscriu-te</button>
-                        </div>
-                    </form>
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 LleidaJove. Tots els drets reservats.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer bg-dark text-white py-4"> <!-- Peu de pàgina amb fons fosc -->
-        <div class="container"> 
-            <div class="row"> <!-- Fila de columnes -->
-                <div class="col-lg-4 mb-4 mb-lg-0"> <!-- Columna de marca -->
-                    <h3 class="mb-3"><span style="color: var(--primary-color);">Lleida</span> UdL</h3> 
-                </div>
-               
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0"> <!-- Columna de contacte -->
-                    <h5 class="mb-3">Contacte</h5> <!-- Subtítol -->
-                    <ul class="list-unstyled"> <!-- Llista sense estil -->
-                        <li class="mb-2">lleida@udl.cat</li> <!-- Correu actualitzat -->
-                        <li class="mb-2">+34 973 70 20 00</li> <!-- Telèfon. -->
-                        <li class="mb-2">Plaça de Víctor Siurana, 1, 25003 Lleida</li> <!-- Adreça -->
-                    </ul>
-                </div>
-               
-            </div>
-            <hr class="my-4 border-white border-opacity-10"> <!-- Línia divisòria. -->
-            <div class="row align-items-center"> <!-- Fila de drets i enllaços. -->
-                <div class="col-md-6"> <!-- Columna de drets. -->
-                    <p class="mb-0">© 2025 Lleida UdL. Tots els drets reservats.</p> <!-- Drets -->
-                </div>
-                <div class="col-md-6 text-md-end"> <!-- Columna d'enllaços legals -->
-                    <a href="#" class="text-white text-decoration-none me-3">Política de Privacitat</a> <!-- Enllaç a política. -->
-                    <a href="#" class="text-white text-decoration-none">Termes i Condicions</a> <!-- Enllaç a termes. -->
-                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white text-decoration-none me-3">Política de Privacitat</a> 
+                    <a href="#" class="text-white text-decoration-none">Termes i Condicions</a> </div>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> <!-- JS de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
     <script>
         // Animacions amb GSAP
         gsap.from(".hero-title", { opacity: 0, y: 50, duration: 1, ease: "power2.out" });
@@ -269,14 +106,7 @@
         gsap.to("#circle2", { x: -30, y: 30, duration: 4, repeat: -1, yoyo: true, ease: "sine.inOut" });
         gsap.to("#circle3", { x: 20, y: -20, duration: 2.5, repeat: -1, yoyo: true, ease: "sine.inOut" });
 
-        // Animació del navbar
-        window.addEventListener("scroll", function() {
-            if (window.scrollY > 50) {
-                gsap.to("#mainNavbar", { backgroundColor: "rgba(0, 0, 0, 0.9)", boxShadow: "0 2px 10px rgba(0, 0, 0, 0.3)", duration: 0.3 });
-            } else {
-                gsap.to("#mainNavbar", { backgroundColor: "rgba(0, 0, 0, 0.9)", boxShadow: "0 2px 10px rgba(0, 0, 0, 0.3)", duration: 0.3 });
-            }
-        });
+        // S'HA ELIMINAT tot el JavaScript relacionat amb l'activació del mode fosc.
     </script>
-</body>
-</html> 
+</body> 
+</html>
