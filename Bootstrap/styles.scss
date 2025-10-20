@@ -1,12 +1,19 @@
-/* variables que queremos crear nuevas 
-$primary: ;
-$danger: ;
+// Fitxer: styles.scss
 
+// 1. Defineix les teves variables de color personalitzades
+// El teu color principal per a Bootstrap (Abans: --primary-color: #830051)
+$primary: #830051; 
+// El teu color daurat per a accents (Abans: --secondary-color: #FFD700). 
+// L'assignem al color 'warning' de Bootstrap per a accents i elements destacats.
+$warning: #FFD700; 
 
-
+// 2. Mapes de personalització (Opcional, per ser explícits)
 $theme-colors: (
-	"primary": $primary,
-	"danger": $danger
-);*/
+    "primary": $primary,
+    "warning": $warning
+    // La resta de colors de Bootstrap es mantenen per defecte.
+);
 
+// 3. Importa Bootstrap
+// Aquesta línia compilarà tot el codi CSS de Bootstrap utilitzant les teves variables.
 @import "./node_modules/bootstrap/scss/bootstrap.scss";
