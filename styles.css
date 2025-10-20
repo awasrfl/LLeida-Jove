@@ -2,7 +2,8 @@ body {
     font-family: 'Open Sans', sans-serif;
     padding-top: 60px; 
     margin: 0; 
-    background: linear-gradient(to bottom, #f8f9fa, #ffffff); /*Gradient suau per fons */
+    /* El teu gradient de fons per defecte */
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff); 
 }
 
 .navbar {
@@ -33,10 +34,12 @@ body {
     transform: scale(1.1);
 }
 
+/* Estils de la secció Hero */
 .hero-section {
-    padding-top: 6rem; /* Espai sota la navbar */
-    margin-top: -1px; 
     position: relative;
+    padding: 80px 0; 
+    min-height: 50vh;
+    overflow: hidden; 
 }
 
 
@@ -46,7 +49,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://www.topuniversities.com/sites/default/files/profiles-slideshow/296402/0_UdL_ArtsHumanitiesCampus_Rectorate_04-1699266864.jpg'); /* Imatge creativa de fons */
+    background: url('https://d3njjcbhfv5kmr.cloudfront.net/api/assets/images/profiles-slideshow/296402/0_UdL_ArtsHumanitiesCampus_Rectorate_04-1699266864.jpg'); 
     background-size: cover;
     background-position: center;
     opacity: 0.3; 
