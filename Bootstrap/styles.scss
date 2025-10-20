@@ -1,12 +1,139 @@
-/* variables que queremos crear nuevas 
-$primary: ;
-$danger: ;
+/* styles.scss - Definició de variables i estils en SCSS */
 
-
+$primary: #830051; // Morat UdL
+$secondary: #FFD700; // Daurat per accents
+$danger: #dc3545; // Vermell per errors
 
 $theme-colors: (
-	"primary": $primary,
-	"danger": $danger
-);*/
+  "primary": $primary,
+  "secondary": $secondary,
+  "danger": $danger
+);
 
-@import "./node_modules/bootstrap/scss/bootstrap.scss";
+// Importem funcions i variables base de Bootstrap
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/maps";
+@import "node_modules/bootstrap/scss/mixins";
+
+// Configuració de root amb variables CSS
+:root {
+  --primary-color: #{$primary};
+  --secondary-color: #{$secondary};
+}
+
+// Estils personalitzats (basats en cssdeprova.css)
+body {
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 60px;
+  margin: 0;
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+.navbar {
+  height: 70px;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  background-color: #343a40 !important; // Fons fosc per visibilitat
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+  &:hover span {
+    color: $secondary !important;
+  }
+}
+
+.nav-link, .btn-auth, .theme-toggle {
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin: 0 0.25rem;
+  &.hover-effect:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: $secondary !important;
+    transform: scale(1.1);
+  }
+}
+
+.hero-section {
+  padding-top: 6rem;
+  margin-top: -1px;
+  position: relative;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.topuniversities.com/sites/default/files/profiles-slideshow/296402/0_UdL_ArtsHumanitiesCampus_Rectorate_04-1699266864.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -2;
+}
+
+.hero-bg-element {
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: $primary;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: darken($primary, 10%);
+    border-color: darken($primary, 10%);
+    transform: scale(1.05);
+  }
+}
+
+.theme-toggle {
+  border-radius: 20px;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.hero-section .container {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.event-highlight {
+  border: 2px solid $secondary;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: rotate(0deg) scale(1.05);
+  }
+}
+
+// Importem components de Bootstrap
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/type";
+@import "node_modules/bootstrap/scss/images";
+@import "node_modules/bootstrap/scss/containers";
+@import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/utilities";
+@import "node_modules/bootstrap/scss/nav";
+@import "node_modules/bootstrap/scss/navbar";
+@import "node_modules/bootstrap/scss/buttons";
+@import "node_modules/bootstrap/scss/forms";
+@import "node_modules/bootstrap/scss/modal";
+@import "node_modules/bootstrap/scss/badge";
