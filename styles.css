@@ -99,3 +99,18 @@ footer {
     margin-top: 0 !important;
     padding-top: 0 !important;
 }
+
+
+.google-calendar-iframe {
+    /* Per defecte la mida és 600px d'alçada. 
+       Amb @media ajustem l'alçada en mòbils per millor visualització */
+    min-height: 600px;
+}
+
+@media (max-width: 768px) {
+    /* En pantalles petites (mòbils), redueix una mica l'alçada 
+       per evitar que ocupi tota la pantalla */
+    .google-calendar-iframe {
+        min-height: 450px;
+    }
+}
