@@ -1,12 +1,13 @@
-// 1. Definició de variables de color personalitzades
-$primary: #830051; 
-// L'assignem al color 'warning' de Bootstrap per a accents i elements destacats.
+//color principal (Primary):
+$primary: #009AFD; 
+// El color d'accent (Warning/Daurat).
 $warning: #FFD700; 
+
 
 $theme-colors: (
     "primary": $primary,
     "warning": $warning
-    // La resta de colors de Bootstrap es mantenen per defecte.
+   
 );
 
 // 3. Importa Bootstrap

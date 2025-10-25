@@ -5,6 +5,7 @@ body {
     background: linear-gradient(to bottom, #f8f9fa, #ffffff); 
 }
 
+/* NAVBAR SEMPRE FOSC */
 .navbar {
     height: 70px;
     transition: all 0.3s ease;
@@ -44,7 +45,7 @@ body {
     min-height: 400px; 
 }
 
-/* Assegura que el contingut estigui davant del fons */
+
 .hero-section .container {
     position: relative; 
     z-index: 10; 
@@ -62,7 +63,7 @@ body {
     z-index: -2; 
 }
 
-/* ELEMENTS DECORATIUS */
+
 .hero-bg-element {
     position: absolute;
     border-radius: 50%;
@@ -78,13 +79,15 @@ body {
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); 
 }
 
+
 .btn-primary:hover {
     filter: brightness(1.1);
     transform: scale(1.05);
 }
 
-/* ESTILS DE L'EVENT DESTACAT */
+
 .event-highlight {
+   
     border: 2px solid var(--bs-warning);
     transition: transform 0.3s ease;
 }
@@ -93,7 +96,7 @@ body {
     transform: rotate(0deg) scale(1.05); 
 }
 
-/* ESTIL PER A LES TARGETES D'ESDEVENIMENTS */
+
 .card-img-top {
     height: 200px; 
     object-fit: cover; 
@@ -104,7 +107,6 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important; 
     transition: all 0.3s ease;
 }
-
 
 .google-calendar-iframe {
     min-height: 600px;

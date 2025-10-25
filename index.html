@@ -124,32 +124,25 @@
         </div>
     </section>
 
-    <section class="py-5 bg-light"> 
-        <div class="container">
-            <div class="row mb-4"> 
-                <div class="col-12"> 
-                    <h2 class="text-center mb-4">Filtra per categoria</h2> 
-                    <div class="d-flex flex-wrap justify-content-center gap-2"> 
-                        <button class="btn btn-outline-primary filter-btn active" data-filter="all">Tots</button>
-                        <button class="btn btn-outline-primary filter-btn" data-filter="music">Música</button>
-                        <button class="btn btn-outline-primary filter-btn" data-filter="theatre">Teatre</button>
-                        <button class="btn btn-outline-primary filter-btn" data-filter="art">Arts Visuals</button>
-                        <button class="btn btn-outline-primary filter-btn" data-filter="cinema">Cinema</button>
-                        <button class="btn btn-outline-primary filter-btn" data-filter="literature">Literatura</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="events" class="py-5"> 
         <div class="container">
             <h2 class="text-center mb-5">Pròxims Esdeveniments</h2> 
+
+            <!-- Botons de filtre ara aquí, just sota el títol -->
+            <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+                <button class="btn btn-outline-primary filter-btn active" data-filter="all">Tots</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="music">Música</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="theatre">Teatre</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="art">Arts Visuals</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="cinema">Cinema</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="literature">Literatura</button>
+            </div>
+
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="eventsContainer"> 
                 
                 <div class="col event-card">
                     <div class="card h-100 shadow-sm border-0">
-                        <img src="./images/jazz.jpg" class="card-img-top" alt="Festival de Jazz UdL">
+                        <img src="./FestivalDeJazz.jpg" class="card-img-top" alt="Festival de Jazz UdL">
                         <div class="card-body">
                             <h5 class="card-title text-primary">Festival de Jazz UdL</h5>
                             <span class="badge bg-warning text-dark mb-2">Música</span>
@@ -157,7 +150,7 @@
                             <p class="card-text">Una nit amb els millors talents de jazz universitari. Reserves limitades per a estudiants.</p>
                         </div>
                         <div class="card-footer bg-white border-0">
-                            <a href="#" class="btn btn-primary w-100">Inscriu-te</a>
+                            <a href="#" class="btn btn-primary w-100">Reserva</a>
                         </div>
                     </div>
                 </div>
@@ -172,14 +165,14 @@
                             <p class="card-text">Obres d'estudiants de Belles Arts explorant el futur de la ciutat.</p>
                         </div>
                         <div class="card-footer bg-white border-0">
-                            <a href="#" class="btn btn-outline-primary w-100">Veure detalls</a>
+                            <a href="#" class="btn btn-outline-primary w-100">Reserva</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col event-card">
                     <div class="card h-100 shadow-sm border-0">
-                        <img src="./images/teatre.jpg" class="card-img-top" alt="Micro Teatre Universitari">
+                        <img src="./MicroTeatre.png" class="card-img-top" alt="Micro Teatre Universitari">
                         <div class="card-body">
                             <h5 class="card-title text-primary">Micro Teatre: Drames Breus</h5>
                             <span class="badge bg-danger mb-2">Teatre</span>
@@ -277,12 +270,42 @@
                                 <option value="3">Teatre Universitari</option>
                             </select>
                         </div>
+
+                        <!-- Mètode de pagament fictici -->
+                        <div class="mb-3">
+                            <label for="paymentMethod" class="form-label">Mètode de Pagament</label>
+                            <select class="form-select" id="paymentMethod" aria-describedby="paymentHelp">
+                                <option selected value="none">Selecciona un mètode</option>
+                                <option value="card">Tarjeta</option>
+                                <option value="bank">Compte bancari</option>
+                                <option value="paypal">PayPal</option>
+                                <option value="onsite">Pagament al lloc (efectiu)</option>
+                            </select>
+                    
+                        </div>
+
+                        <!-- Camps opcionals per a simulació de targeta (no funcionals) -->
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label">Número de Targeta </label>
+                            <input type="text" class="form-control" id="cardNumber" placeholder="0000 0000 0000 0000">
+                        </div>
+                        <div class="row g-2 mb-3">
+                            <div class="col-6">
+                                <label for="cardExpiry" class="form-label">Caducitat</label>
+                                <input type="text" class="form-control" id="cardExpiry" placeholder="MM/AA">
+                            </div>
+                            <div class="col-6">
+                                <label for="cardCVC" class="form-label">CVC</label>
+                                <input type="text" class="form-control" id="cardCVC" placeholder="000">
+                            </div>
+                        </div>
+
                         <div class="mb-3">
                             <label for="message" class="form-label">Missatge (opcional)</label>
                             <textarea class="form-control" id="message" rows="3"></textarea>
                         </div>
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Inscriu-te</button>
+                            <button type="submit" class="btn btn-primary">Reserva</button>
                         </div>
                     </form>
                 </div>
@@ -298,8 +321,9 @@
                 </div>
                 
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0"> 
-                    <li class="mb-3">Contacte</li> 
+                    
                     <ul class="list-unstyled"> 
+                        <li class="mb-2">Contacte</li> 
                         <li class="mb-2">lleida@udl.cat</li> 
                         <li class="mb-2">+34 973 70 20 00</li> 
                         <li class="mb-2">Plaça de Víctor Siurana, 1, 25003 Lleida</li> 
@@ -323,8 +347,8 @@
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> 
-    
+    <script src="GSAP.js"></script> 
+
 </body>
 </html>
-</body>
-</html>
+
