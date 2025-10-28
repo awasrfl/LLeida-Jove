@@ -127,40 +127,29 @@ body {
         min-height: 450px;
     }
 }
-
-/* Millora 3D cards */
-.event-card .card { transform-origin: center center; will-change: transform, box-shadow; box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
-
-footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-
 .navbar-toggler-icon {
-    /* La propietat 'filter' s'utilitza per invertir el color de la icona SVG
-       predeterminada de Bootstrap, que és negra, i fer-la blanca. */
     filter: brightness(0) invert(1);
 }
 
-.navbar-collapse, .navbar-nav {
+/* 2. Regles que SÓL S'apliquen en pantalles MÉS PETITES que l'escriptori (mòbil/tablet) */
+@media (max-width: 991.98px) { 
+    .navbar-collapse {
+        background-color: var(--bs-white); 
+        padding: 1rem;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-collapse .nav-link, 
+    .navbar-collapse .btn-auth,
+    .navbar-collapse .navbar-brand {
+      
+        color: var(--bs-black) !important; 
+    }
 
-}
 
-/* Per als enllaços de navegació dins del menú col·lapsat */
-.navbar-collapse .nav-link, 
-.navbar-collapse .btn-auth {
-    color: var(--bs-white) !important; /* Fa que el text sigui blanc */
-}
-
-/* Opcional: Per si hi ha elements interactius com botons o enllaços de marca
-   dins del menú que necessiten ser més visibles. */
-.navbar-collapse .navbar-brand {
-    color: var(--bs-white) !important;
-}
-
-/* Opcional: Millorem l'aparença en passar el ratolí */
-.navbar-collapse .nav-link:hover {
-    color: var(--bs-warning) !important; /* El color d'accent */
+    .navbar-collapse .nav-link:hover {
+        /* El color d'accent (warning) es veurà millor sobre el fons blanc */
+        color: var(--bs-warning) !important; 
+    }
 }
