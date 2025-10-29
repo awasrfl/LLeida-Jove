@@ -159,3 +159,15 @@ body {
         color: var(--bs-warning) !important; 
     }
 }
+
+/* Estil per al logo dins del navbar */
+.navbar-logo {
+    height: 130px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+/* efecte suau al passar el ratolí */
+.navbar-logo:hover {
+    transform: scale(1.05);
+}
