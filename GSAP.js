@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', function(){
     gsap.from(".hero-title", { opacity: 0, y: 50, duration: 1, ease: "power2.out" });
   }
 
-  //Mou la imatge de fons 80px cap avall.
+  //Mou el video de fons 80px cap avall.
   if (document.querySelector('.hero-bg-img') && window.ScrollTrigger) {
-    gsap.to(".hero-bg-img", {
+    gsap.to(".hero-bg-video", {
       y: 80,
       ease: "none",
       scrollTrigger: {

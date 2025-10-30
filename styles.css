@@ -136,30 +136,36 @@ body {
     filter: brightness(0) invert(1);
 }
 
-/* . Regles que SÓL S'apliquen en pantalles MÉS PETITES que l'escriptori (mòbil/tablet) */
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* 2. Regles que SÓL S'apliquen en pantalles MÉS PETITES (fins a 991.98px) */
 @media (max-width: 991.98px) { 
     
-
-    .navbar-collapse {
-        background-color: var(--bs-white); 
-        padding: 1rem;
-        border-radius: 0 0 8px 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  
+    #mainNavbar .navbar-collapse {
+       
+        background-color: var(--bs-white) !important; 
+        padding: 1rem !important;
+        border-radius: 0 0 8px 8px !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important; 
     }
     
    
-    .navbar-collapse .nav-link, 
-    .navbar-collapse .btn-auth,
-    .navbar-collapse .navbar-brand {
+    #mainNavbar .navbar-collapse .nav-link, 
+    #mainNavbar .navbar-collapse .btn-auth,
+    #mainNavbar .navbar-collapse .navbar-brand {
         color: var(--bs-black) !important; 
     }
 
-
-    .navbar-collapse .nav-link:hover {
-        color: var(--bs-warning) !important; 
-    }
-
     
+    #mainNavbar .navbar-collapse .nav-link:hover {
+        color: var(--bs-primary) !important; 
+        background-color: var(--bs-gray-200) !important; 
+        border-radius: 4px !important;
+    }
 }
 
 /* Estil per al logo dins del navbar */
