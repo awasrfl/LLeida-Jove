@@ -158,6 +158,20 @@ body {
     .navbar-collapse .nav-link:hover {
         color: var(--bs-warning) !important; 
     }
+
+
+    .navbar-brand {
+       
+        display: flex !important;
+        align-items: center !important; 
+        
+    }
+
+    
+    .navbar-brand .navbar-logo {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
 }
 
 /* Estil per al logo dins del navbar */
