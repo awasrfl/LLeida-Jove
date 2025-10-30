@@ -179,3 +179,32 @@ body {
 .navbar-logo:hover {
     transform: scale(1.05);
 }
+
+.navbar > .container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.navbar-logo {
+    height: 50px; /* Reduïm l'alçada en mobile */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggler {
+    padding: 0.25rem 0.5rem;
+    margin: 0;
+}
+
+/* En pantalles més grans, tornem a l'alçada original */
+@media (min-width: 992px) {
+    .navbar-logo {
+        height: 100px;
+    }
+}
