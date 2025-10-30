@@ -179,23 +179,3 @@ body {
 .navbar-logo:hover {
     transform: scale(1.05);
 }
-/* Assegurem l'alineació vertical per a tots els elements dins del contenidor del navbar */
-.navbar .container {
-    display: flex;
-    align-items: center; 
-    height: 100%; 
-}
-
-
-.navbar-toggler {
-    padding: 0; 
-    height: 70px; 
-    display: flex;
-    align-items: center;
-}
-
-
-.navbar-brand, .navbar-toggler {
-    margin-top: 0;
-    margin-bottom: 0;
-}
