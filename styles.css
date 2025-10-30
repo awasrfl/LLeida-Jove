@@ -162,7 +162,7 @@ body {
 
 /* Estil per al logo dins del navbar */
 .navbar-logo {
-    height: 130px;
+    height: 100px;
     width: auto;
     transition: transform 0.3s ease;
 }
